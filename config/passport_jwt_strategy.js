@@ -7,10 +7,14 @@ const opts = {
     secretOrKey : 'school'
 }
 
-const Admin = require('../model/adminModel')
+const Admin = require('../model/adminModel');
 passport.use(new jwtStrategy(opts,async (payload,done)=>{
-    let CheckEmailAdmin = await Admin.findOne({email:payload.AdminData.email})
+    console.log(payload);
+    
+    let CheckEmailAdmin = await Admin.findOne({email:payload.AdminData.email});
+    console.log(CheckEmailAdmin);
     if(CheckEmailAdmin){
+        
         return done(null,CheckEmailAdmin)
     }
     else{
