@@ -1,6 +1,5 @@
 
 const mongoose = require('mongoose')
-const { type } = require('os')
 const FacultySchema = mongoose.Schema({
     username: {
         type: String,
